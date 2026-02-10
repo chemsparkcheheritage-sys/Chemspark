@@ -78,3 +78,47 @@ a.button:hover {
     padding: 20px 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+.hero {
+    background: linear-gradient(135deg, #0b3c5d, #123d5a);
+    color: white;
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #e0eaf0;
+}
+.card {
+    background: white;
+    margin: 20px 30px;
+    padding: 20px;
+    border-left: 5px solid #0b3c5d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+.card, .button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.button:hover {
+    transform: scale(1.03);
+}
+h1, h2 {
+    letter-spacing: 0.5px;
+}
