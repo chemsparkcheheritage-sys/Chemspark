@@ -171,3 +171,27 @@ footer a {
 footer a:hover {
     color: #ffffff;
 }
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 30px 40px;
+}
+
+.event-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 6px solid #0b3c5d;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.event-card h2 {
+    margin-bottom: 10px;
+    color: #0b3c5d;
+}
+
+.event-card p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+}
