@@ -163,3 +163,11 @@ footer {
     padding: 20px;
     font-size: 0.9rem;
 }
+footer a {
+    color: #e0eaf0;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
