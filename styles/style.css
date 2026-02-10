@@ -1,30 +1,80 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global reset */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
 }
 
+/* Body */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* Navigation bar */
 nav {
-    background-color: #0b3c5d;
-    padding: 10px;
+    background: linear-gradient(90deg, #0b3c5d, #123d5a);
+    padding: 15px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    margin-right: 15px;
-    font-weight: bold;
+    margin-right: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+/* Main headings */
 h1 {
-    padding: 20px;
+    font-size: 2.2rem;
+    margin: 30px;
+    color: #0b3c5d;
 }
 
-p {
-    padding: 0 20px 20px 20px;
+/* Sub headings */
+h2 {
+    margin: 20px 30px 10px;
+    color: #123d5a;
+}
+
+/* Text */
+p, ul {
+    margin: 0 30px 20px;
+    font-size: 1rem;
+}
+
+/* Lists */
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Buttons / links that matter */
+a.button {
+    display: inline-block;
+    margin: 20px 30px;
+    padding: 10px 20px;
+    background-color: #0b3c5d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+a.button:hover {
+    background-color: #092f48;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
