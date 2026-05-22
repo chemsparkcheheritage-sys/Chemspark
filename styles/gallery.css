@@ -1,0 +1,49 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* Main headings */
+h1 {
+    font-size: 2.2rem;
+    margin: 30px;
+    color: #0b3c5d;
+    letter-spacing: 0.5px;
+}
+
+/* Text */
+p {
+    margin: 0 30px 20px;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin: 20px 30px;
+    color: #0b3c5d;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #092f48;
+}

@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap');
+
+:root {
+    --bg-color: #f7f7f7;
+    --card-bg: #ffffff;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-muted: #888888;
+    --border-color: #e0e0e0;
+    --accent-color: #0b3c5d;
+    --font-heading: 'Outfit', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    padding: 60px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Page Header */
+.schedule-header {
+    margin-bottom: 60px;
+}
+
+.schedule-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.schedule-header p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+}
+
+/* Schedule Layout sections */
+.schedule-section {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.schedule-section:last-child {
+    margin-bottom: 0;
+}
+
+.day-indicator {
+    width: 100px;
+    min-width: 100px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-top: 25px;
+    text-align: right;
+}
+
+.timeline-container {
+    flex: 1;
+    border-left: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Timeline Timeline Items */
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 40px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    background-color: var(--card-bg);
+    transition: background-color 0.2s ease;
+}
+
+.timeline-item.has-details {
+    cursor: pointer;
+}
+
+.timeline-item.has-details:hover {
+    background-color: #fafafa;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+/* Outlined Big clock time display */
+.time-display {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: transparent;
+    -webkit-text-stroke: 1px #cccccc;
+    width: 150px;
+    min-width: 150px;
+    line-height: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none;
+    letter-spacing: -1px;
+}
+
+.time-display .ampm {
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+/* Timeline Info Card text */
+.event-info {
+    flex: 1;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.event-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.timeline-item.has-details:hover .event-title {
+    color: var(--accent-color);
+}
+
+/* Muted visual elements for Breaks */
+.timeline-item.muted {
+    cursor: default;
+}
+
+.timeline-item.muted .time-display {
+    -webkit-text-stroke: 1px #e0e0e0;
+}
+
+.timeline-item.muted .event-title {
+    color: var(--text-muted);
+}
+
+/* Collapsible drawer container */
+.event-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.timeline-item.active .event-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 15px;
+}
+
+/* Toggle Accordion plus sign '+' button */
+.toggle-icon {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    transition: transform 0.3s ease, color 0.2s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    margin-top: 10px;
+}
+
+.timeline-item.has-details:hover .toggle-icon {
+    color: var(--text-primary);
+}
+
+.timeline-item.active .toggle-icon {
+    transform: rotate(45deg); /* morph + into an x! */
+    color: var(--text-primary);
+}
+
+/* Responsive Queries for Mobile Views */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px 10px;
+        padding: 30px 15px;
+    }
+
+    .schedule-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .schedule-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .schedule-header p {
+        font-size: 1rem;
+    }
+
+    .schedule-section {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 45px;
+    }
+
+    .day-indicator {
+        width: 100%;
+        min-width: 100%;
+        text-align: center;
+        background-color: var(--text-primary);
+        color: #ffffff;
+        padding: 10px 0;
+        font-size: 1rem;
+        border-radius: 4px;
+        letter-spacing: 2px;
+    }
+
+    .timeline-container {
+        border-left: none;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 10px;
+        gap: 12px;
+    }
+
+    .time-display {
+        width: auto;
+        min-width: auto;
+        font-size: 2.5rem;
+        flex-direction: row;
+        gap: 6px;
+        align-items: baseline;
+        height: auto;
+    }
+
+    .time-display .ampm {
+        font-size: 1.2rem;
+    }
+
+    .event-info {
+        padding-left: 0;
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .event-title {
+        font-size: 1.15rem;
+    }
+
+    .toggle-icon {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        margin-top: 0;
+    }
+}

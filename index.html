@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemspark 2026</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/schedule.css">
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            CHEMSPARK
+            <span class="logo-sub">2026</span>
+        </a>
+        
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links">
+            <a href="#schedule-wrapper">Schedule</a>
+            <a href="pages/Register.html">Register</a>
+            <a href="pages/My_Registration.html">My Registrations</a>
+            <a href="pages/Notice.html">Notices</a>
+            <a href="pages/Team.html">Team</a>
+            <a href="pages/Gallery.html">Gallery</a>
+        </nav>
+
+        <!-- Hamburger Icon for Mobile Views -->
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Mobile Dropdown Drawer -->
+    <div class="mobile-nav" id="mobile-nav-menu">
+        <a href="#schedule-wrapper">Schedule</a>
+        <a href="pages/Register.html">Register</a>
+        <a href="pages/My_Registration.html">My Registrations</a>
+        <a href="pages/Notice.html">Notices</a>
+        <a href="pages/Team.html">Team</a>
+        <a href="pages/Gallery.html">Gallery</a>
+    </div>
+
+    <!-- Main Hero & Countdown Timer -->
+    <section class="hero">
+        <h1>Chemspark 2026</h1>
+        <p class="tagline">A Departmental Technical Event Celebrating Innovation and Engineering</p>
+        
+        <div class="countdown-container">
+            <p class="countdown-heading">The event starts in</p>
+            <div class="countdown" id="countdown-timer">
+                <div class="time-block">
+                    <span class="digit" id="days">00</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span class="digit" id="hours">00</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span class="digit" id="minutes">00</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span class="digit" id="seconds">00</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+        </div>
+
+        <a href="pages/Register.html" class="cta-button">
+            REGISTER NOW <span class="arrow">➔</span>
+        </a>
+    </section>
+
+    <!-- Dynamically Loaded Event Schedule Section -->
+    <section id="schedule-wrapper" class="schedule-section-wrapper"></section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="highlight">🧠 Hands-on Technical Challenges</div>
+        <div class="highlight">🏆 Certificates & Exciting Prizes</div>
+        <div class="highlight">🤝 Faculty & Peer Interaction</div>
+        <div class="highlight">🚀 Skills Beyond the Classroom</div>
+    </section>
+
+    <!-- Featured Events Section -->
+    <section class="featured-events">
+        <h2>Featured Events</h2>
+        
+        <div class="event-grid">
+            <div class="card">
+                <h3>Paper Presentation</h3>
+                <p>Showcase your research ideas and technical thinking.</p>
+            </div>
+
+            <div class="card">
+                <h3>Technical Quiz</h3>
+                <p>Fast-paced questions that test depth and speed.</p>
+            </div>
+
+            <div class="card">
+                <h3>Problem Solving Challenge</h3>
+                <p>Engineering decisions under pressure.</p>
+            </div>
+        </div>
+
+        <a href="#schedule-wrapper" class="view-schedule-btn">
+            View Full Schedule ➔
+        </a>
+    </section>
+
+    <!-- Credibility Banner -->
+    <section class="credibility">
+        <p><strong>100+ participants</strong> · Multiple colleges · Proven impact</p>
+    </section>
+
+    <!-- Split Footer Section -->
+    <footer class="footer">
+        <div class="footer-left">
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <div class="footer-right">
+            <a href="mailto:chemspark@yourcollege.edu">chemspark@yourcollege.edu</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Navigation and Countdown Script -->
+    <script>
+        // 1. Mobile Menu Drawer Toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileNavMenu = document.getElementById('mobile-nav-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            mobileNavMenu.classList.toggle('active');
+        });
+
+        // Close drawer when clicking outside or clicking any nav link inside mobile-nav
+        document.addEventListener('click', (event) => {
+            if (!headerElementContains(event.target) || event.target.closest('#mobile-nav-menu a')) {
+                hamburgerBtn.classList.remove('active');
+                mobileNavMenu.classList.remove('active');
+            }
+        });
+
+        function headerElementContains(target) {
+            return hamburgerBtn.contains(target) || mobileNavMenu.contains(target);
+        }
+
+        // 2. Event Opening Live Countdown Timer (Target: June 21, 2026, 10:00:00 AM local time)
+        // Note: Months are 0-indexed in JS (0 = January, 5 = June)
+        const targetDate = new Date(2026, 5, 21, 10, 0, 0).getTime();
+
+        const daysSpan = document.getElementById('days');
+        const hoursSpan = document.getElementById('hours');
+        const minutesSpan = document.getElementById('minutes');
+        const secondsSpan = document.getElementById('seconds');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                daysSpan.textContent = "00";
+                hoursSpan.textContent = "00";
+                minutesSpan.textContent = "00";
+                secondsSpan.textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            daysSpan.textContent = String(days).padStart(2, '0');
+            hoursSpan.textContent = String(hours).padStart(2, '0');
+            minutesSpan.textContent = String(minutes).padStart(2, '0');
+            secondsSpan.textContent = String(seconds).padStart(2, '0');
+        }
+
+        // Initialize countdown immediately and then schedule hourly ticking
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // 3. Dynamic Schedule Loader
+        const scheduleWrapper = document.getElementById('schedule-wrapper');
+        if (scheduleWrapper) {
+            fetch('pages/schedule.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(htmlText => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlText, 'text/html');
+                    const container = doc.querySelector('.container');
+                    if (container) {
+                        scheduleWrapper.appendChild(container);
+                        initializeScheduleAccordion();
+                    } else {
+                        console.error('Could not find .container in schedule.html');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading dynamic schedule:', error);
+                    scheduleWrapper.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: var(--text-secondary);">
+                            <p>Unable to load event schedule. Please try refreshing the page.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function initializeScheduleAccordion() {
+            const timelineItems = scheduleWrapper.querySelectorAll('.timeline-item.has-details');
+            timelineItems.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    if (event.target.tagName === 'A') return;
+
+                    timelineItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    item.classList.toggle('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

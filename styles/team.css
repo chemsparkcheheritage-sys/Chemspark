@@ -1,0 +1,123 @@
+/* Global reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+    line-height: 1.7;
+}
+
+/* Main headings */
+h1 {
+    font-size: 2.2rem;
+    margin: 30px;
+    color: #0b3c5d;
+    letter-spacing: 0.5px;
+}
+
+/* Sub headings */
+h2 {
+    margin: 20px 30px 10px;
+    color: #123d5a;
+    letter-spacing: 0.5px;
+}
+
+/* Text */
+p {
+    margin: 0 30px 20px;
+    font-size: 1rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 30px 0 50px;
+}
+
+.shield-card {
+    position: relative;
+    width: 230px;
+    height: 300px;
+    margin: 20px;
+    transition: transform 0.3s ease;
+}
+
+.shield-card:hover {
+    transform: translateY(-8px);
+}
+
+.shield-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Content layered on top */
+.shield-content {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.shield-content h3 {
+    margin-top: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.shield-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0; /* Override default paragraph margin inside card */
+}
+
+/* Profile image */
+.profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    background-color: #fff;
+}
+
+/* Text color rules by role */
+
+/* Gold shield → black text */
+.shield-card.gold .shield-content {
+    color: #1f1f1f;
+}
+
+/* Red shield → white text */
+.shield-card.red .shield-content {
+    color: #ffffff;
+}
+
+/* Blue shield → golden text */
+.shield-card.blue .shield-content {
+    color: #e6c97a;
+}
+
+.shield-content h3,
+.shield-content p {
+    color: inherit;
+}
