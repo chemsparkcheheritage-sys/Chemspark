@@ -2,95 +2,210 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team | Chemspark</title>
     <link rel="stylesheet" href="../styles/team.css">
 </head>
 <body>
-<div class="container">
+    <!-- SVG Definition for the card cutout -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <clipPath id="card-shape">
+                <path d="M 20 50
+                         A 300 300 0 0 1 280 50
+                         A 50 50 0 0 0 300 95
+                         L 300 400
+                         C 300 425, 150 425, 150 450
+                         C 150 425, 0 425, 0 400
+                         L 0 95
+                         A 50 50 0 0 0 20 50
+                         Z" />
+            </clipPath>
+        </defs>
+    </svg>
 
-    <h1>Organizing Team</h1>
+    <div class="container">
+        <h1>Organizing Team</h1>
 
-    <!-- ================= Faculty Coordinators ================= -->
-    <h2>Faculty Coordinators</h2>
+        <!-- ================= Faculty Coordinators ================= -->
+        <h2>Faculty Coordinators</h2>
+        <div class="team-grid">
+            <div class="card-wrapper">
+                <div class="card card-gold">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Faculty Coordinator <span class="line">&mdash;</span></div>
+                                <div class="main-title">FACULTY</div>
+                                <div class="name-label">DR. A. SHARMA</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="team-grid">
-
-        <div class="shield-card gold">
-            <img class="shield-bg" src="../assets/golden-shield.jpg" alt="Gold Shield">
-
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Faculty Coordinator">
-                <h3>Dr. A. Sharma</h3>
-                <p>Faculty Coordinator</p>
+            <div class="card-wrapper">
+                <div class="card card-gold">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Faculty Coordinator <span class="line">&mdash;</span></div>
+                                <div class="main-title">FACULTY</div>
+                                <div class="name-label">DR. R. MEHTA</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="shield-card gold">
-            <img class="shield-bg" src="../assets/golden-shield.jpg" alt="Gold Shield">
+        <!-- ================= Student Coordinators ================= -->
+        <h2>Student Coordinators</h2>
+        <div class="team-grid">
+            <div class="card-wrapper">
+                <div class="card card-red">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic-red"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Student Coordinator <span class="line">&mdash;</span></div>
+                                <div class="main-title">STUDENT</div>
+                                <div class="name-label">RISHI KUMAR</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Faculty Coordinator">
-                <h3>Dr. R. Mehta</h3>
-                <p>Faculty Coordinator</p>
+            <div class="card-wrapper">
+                <div class="card card-red">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic-red"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Student Coordinator <span class="line">&mdash;</span></div>
+                                <div class="main-title">STUDENT</div>
+                                <div class="name-label">ANANYA SINGH</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- ================= Event Heads ================= -->
+        <h2>Event Heads</h2>
+        <div class="team-grid">
+            <div class="card-wrapper">
+                <div class="card card-blue">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic-blue"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Event Head <span class="line">&mdash;</span></div>
+                                <div class="main-title">EVENT HEAD</div>
+                                <div class="name-label">RAHUL VERMA</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-wrapper">
+                <div class="card card-blue">
+                    <div class="card-inner">
+                        <div class="top-half top-bg-graphic-blue"></div>
+                        <div class="bottom-half">
+                            <div class="bottom-shadow"></div>
+                            <div class="card-content">
+                                <div class="role-label"><span class="line">&mdash;</span> Event Head <span class="line">&mdash;</span></div>
+                                <div class="main-title">EVENT HEAD</div>
+                                <div class="name-label">NEHA PATEL</div>
+                                <div class="bottom-decor">&bull; &diams; &bull;</div>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- ================= Student Coordinators ================= -->
-    <h2>Student Coordinators</h2>
+    <!-- Mouse Interactive 3D Card Hover & Shine Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.card-wrapper');
 
-    <div class="team-grid">
+            cards.forEach(cardWrapper => {
+                const shine = cardWrapper.querySelector('.card-shine');
 
-        <div class="shield-card red">
-            <img class="shield-bg" src="../assets/red-shield.jpg" alt="Red Shield">
+                cardWrapper.addEventListener('mousemove', e => {
+                    const rect = cardWrapper.getBoundingClientRect();
+                    // Mouse position relative to the element
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
 
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Student Coordinator">
-                <h3>Rishi Kumar</h3>
-                <p>Student Coordinator</p>
-            </div>
-        </div>
+                    // Center of the element
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
 
-        <div class="shield-card red">
-            <img class="shield-bg" src="../assets/red-shield.jpg" alt="Red Shield">
+                    // Calculate rotation values (max rotation is 15 degrees)
+                    const rotateX = ((y - centerY) / centerY) * -15;
+                    const rotateY = ((x - centerX) / centerX) * 15;
 
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Student Coordinator">
-                <h3>Ananya Singh</h3>
-                <p>Student Coordinator</p>
-            </div>
-        </div>
+                    // Apply 3D transform
+                    cardWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                    cardWrapper.style.transition = 'none';
+                    cardWrapper.style.zIndex = '10';
 
-    </div>
+                    // Calculate shine position
+                    const moveX = (x / rect.width) * 100;
+                    const moveY = (y / rect.height) * 100;
+                    
+                    if (shine) {
+                        shine.style.backgroundPosition = `${moveX}% ${moveY}%`;
+                    }
+                });
 
-    <!-- ================= Event Heads ================= -->
-    <h2>Event Heads</h2>
+                cardWrapper.addEventListener('mouseleave', () => {
+                    // Reset to default
+                    cardWrapper.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)`;
+                    cardWrapper.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.5s ease';
+                    cardWrapper.style.zIndex = '1';
 
-    <div class="team-grid">
+                    if (shine) {
+                        shine.style.backgroundPosition = '100% 100%';
+                        shine.style.transition = 'opacity 0.5s ease, background-position 0.5s ease';
+                    }
+                });
 
-        <div class="shield-card blue">
-            <img class="shield-bg" src="../assets/blue-shield.jpg" alt="Blue Shield">
-
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Event Head">
-                <h3>Rahul Verma</h3>
-                <p>Event Head</p>
-            </div>
-        </div>
-
-        <div class="shield-card blue">
-            <img class="shield-bg" src="../assets/blue-shield.jpg" alt="Blue Shield">
-
-            <div class="shield-content">
-                <img class="profile" src="../assets/profile-placeholder.jpg" alt="Event Head">
-                <h3>Neha Patel</h3>
-                <p>Event Head</p>
-            </div>
-        </div>
-
-    </div>
-
-</div>
+                cardWrapper.addEventListener('mouseenter', () => {
+                    // Remove transition when entering to prevent snap-back delay
+                    cardWrapper.style.transition = 'none';
+                    
+                    if (shine) {
+                        shine.style.transition = 'opacity 0.2s';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

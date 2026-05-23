@@ -1,123 +1,286 @@
-/* Global reset */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600&family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Body */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #222;
-    line-height: 1.7;
-}
-
-/* Main headings */
-h1 {
-    font-size: 2.2rem;
-    margin: 30px;
-    color: #0b3c5d;
-    letter-spacing: 0.5px;
-}
-
-/* Sub headings */
-h2 {
-    margin: 20px 30px 10px;
-    color: #123d5a;
-    letter-spacing: 0.5px;
-}
-
-/* Text */
-p {
-    margin: 0 30px 20px;
-    font-size: 1rem;
+    background-color: #f7f7f7; /* Light subtle gray background matching home */
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #111111;
+    line-height: 1.6;
+    padding: 40px 20px;
 }
 
 .container {
-    max-width: 1000px;
-    margin: auto;
-    background: white;
-    padding: 20px 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 60px 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Headings */
+h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #111111;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0b3c5d;
+    margin: 40px 0 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .team-grid {
     display: flex;
+    gap: 40px;
     flex-wrap: wrap;
-    gap: 30px;
     justify-content: center;
-    margin: 30px 0 50px;
+    margin-bottom: 40px;
 }
 
-.shield-card {
+/* 
+  The card wrapper holds the physical dimensions of the card and provides the 3D space 
+  for our awesome hover effect. It also applies the outer shadow because clip-path 
+  on the child element hides any shadows cast by itself. 
+*/
+.card-wrapper {
+    width: 300px;
+    height: 450px;
     position: relative;
-    width: 230px;
-    height: 300px;
-    margin: 20px;
-    transition: transform 0.3s ease;
+    /* Outer shadow for premium aesthetics */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), z-index 0.5s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform;
 }
 
-.shield-card:hover {
-    transform: translateY(-8px);
-}
-
-.shield-bg {
+.card {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    /* Apply the custom shape defined in the HTML */
+    clip-path: url(#card-shape);
+    position: relative;
+    overflow: hidden;
+    /* A tiny border illusion */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Content layered on top */
-.shield-content {
-    position: absolute;
-    top: 35px;
-    left: 0;
+.card-inner {
     width: 100%;
-    text-align: center;
-    padding: 10px;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.shield-content h3 {
-    margin-top: 10px;
-    font-size: 1.05rem;
-    font-weight: 700;
+.top-half {
+    width: 100%;
+    height: 65%;
+    position: relative;
+    overflow: hidden;
 }
 
-.shield-content p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin: 0; /* Override default paragraph margin inside card */
+.bottom-half {
+    width: 100%;
+    height: 35%;
+    position: relative;
+    z-index: 2;
 }
 
-/* Profile image */
-.profile {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid white;
-    object-fit: cover;
-    background-color: #fff;
+.top-bg-graphic {
+    background-image: url('../Assets/top-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Text color rules by role */
-
-/* Gold shield → black text */
-.shield-card.gold .shield-content {
-    color: #1f1f1f;
+.top-bg-graphic-red {
+    background-image: url('../Assets/red-top-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Red shield → white text */
-.shield-card.red .shield-content {
-    color: #ffffff;
+.top-bg-graphic-blue {
+    background-image: url('../Assets/blue-top-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Blue shield → golden text */
-.shield-card.blue .shield-content {
-    color: #e6c97a;
+/* Base styles for the card to give it a stunning, dynamic gradient look */
+.card-gold {
+    background: #000;
+}
+.card-gold .bottom-half {
+    background: linear-gradient(180deg, #FBE08B 0%, #DFC071 50%, #af882b 100%);
+    border-top: 3px solid #b73e04;
+    box-shadow: inset 0 -40px 60px -10px rgba(50, 20, 0, 0.7), inset 0 20px 30px -20px rgba(255,255,255,0.8);
 }
 
-.shield-content h3,
-.shield-content p {
-    color: inherit;
+.card-red {
+    background: #000;
+}
+.card-red .bottom-half {
+    background: linear-gradient(180deg, #ff4d4d 0%, #c41e1e 50%, #7a0b0b 100%);
+    border-top: 3px solid #ff9999;
+    box-shadow: inset 0 -40px 60px -10px rgba(50, 0, 0, 0.9), inset 0 20px 30px -20px rgba(255,255,255,0.5);
+}
+
+.card-blue {
+    background: #000;
+}
+.card-blue .bottom-half {
+    background: linear-gradient(180deg, #66b3ff 0%, #1a75ff 50%, #003380 100%);
+    border-top: 3px solid #b3d9ff;
+    box-shadow: inset 0 -40px 60px -10px rgba(0, 20, 50, 0.9), inset 0 20px 30px -20px rgba(255,255,255,0.5);
+}
+
+/* --- Typography & Foreground Content Layout --- */
+.card-content {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 6px; 
+    z-index: 10;
+}
+
+.role-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.85);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.role-label .line {
+    opacity: 0.5;
+}
+
+.main-title {
+    font-family: 'Cinzel', serif;
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.name-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.95);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.bottom-decor {
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+/* Card Specific Metallic Text Themes */
+.card-gold .main-title {
+    background: linear-gradient(180deg, #FFF0B3 0%, #d49b09 50%, #996e00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 3px 2px rgba(50, 20, 0, 0.8)) drop-shadow(0px -1px 0px rgba(255,255,255,0.5));
+}
+.card-red .main-title {
+    background: linear-gradient(180deg, #ffcccc 0%, #ff4d4d 50%, #b30000 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 3px 2px rgba(60, 0, 0, 0.9)) drop-shadow(0px -1px 0px rgba(255,100,100,0.5));
+}
+.card-blue .main-title {
+    background: linear-gradient(180deg, #cce6ff 0%, #3399ff 50%, #004d99 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 3px 2px rgba(0, 10, 50, 0.9)) drop-shadow(0px -1px 0px rgba(100,200,255,0.5));
+}
+
+/* A dynamic shine that will rotate and move with mouse interaction */
+.card-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0) 100%
+    );
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-size: 200% 200%;
+    background-position: 100% 100%;
+}
+
+.card-wrapper:hover .card-shine {
+    opacity: 1;
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    
+    .container {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .team-grid {
+        gap: 30px;
+    }
 }
